@@ -4,10 +4,12 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SigninComponent } from './signin/signin.component';
 import { InputMessageModule } from "../shared/components/input-message/input-message.module";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
     imports: [
         CommonModule, 
+        RouterModule,
         ReactiveFormsModule,
         InputMessageModule
     ],
