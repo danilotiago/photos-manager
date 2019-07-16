@@ -13,7 +13,8 @@ export class PhotoListResolver implements Resolve<Observable<Photo[]>> {
     constructor(private service: PhotoService) { }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Photo[]> {
-        const username = route.params.username;
-        return this.service.listFromUser(username);
+        const username: string = route.params.username;
+        const page: number = 1;
+        return this.service.listFromUserPaginated(username, page);
     }
 }
