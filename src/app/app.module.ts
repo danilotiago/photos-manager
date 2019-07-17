@@ -1,3 +1,4 @@
+import { HeaderModule } from './core/header/header.module';
 import { HomeModule } from './home/home.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -15,6 +16,7 @@ import { PhotosModule } from './photos/photos.module';
     BrowserModule,
     AppRoutingModule,
     ErrorsModule,
+    HeaderModule,
     HomeModule,
     PhotosModule
   ],
