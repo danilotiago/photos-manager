@@ -1,4 +1,7 @@
+import { UserService } from './../user/user.service';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from '../user/user.model';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  // attr do tipo observable criamos um $ no final
+  user$: Observable<User>;
+
+  constructor(userService: UserService) {
+    this.user$ = userService.getUser();
+   }
 
   ngOnInit() {
   }
