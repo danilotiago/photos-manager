@@ -21,7 +21,7 @@ export class UserNotTakenValidatorService {
                 // aplica o map para conversao do resultado (pois por default o 
                 // resultado eh apenas true ou false, logo, temos que adaptar a 
                 // resposta)
-                .pipe(map(isTaken => isTaken ? { usernametaken: true } : null)) 
+                .pipe(map(isTaken => isTaken ? { userNametaken: true } : null)) 
                 .pipe(first()) // completa o observable do signupService com o primeiro valor emitido
 
         }
