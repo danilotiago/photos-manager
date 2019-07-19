@@ -47,6 +47,11 @@
         *ngIf="signupForm.get('username').errors?.lowercase"
         text="Must be lowercase"
       ></app-input-message>
+      <app-input-message
+        *ngIf="signupForm.get('username').errors?.usernametaken"
+        text="Username already taken"
+      ></app-input-message> 
+      <small *ngIf="signupForm.get('username').valid" class="text-success">User available</small>
     </div>
 
     <div class="form-group">
@@ -65,7 +70,9 @@
       ></app-input-message>
     </div>
 
-    <button class="btn btn-primary btn-block">Register</button>
+    <!--valida se pending pois podemos ter validacoes assincronas, 
+    logo, estas podem demorar e nao podemos habilitar o botao -->
+    <button [disabled]="signupForm.invalid || signupForm.pending" class="btn btn-primary btn-block">Register</button>
 
     <p>Already a user?<a [routerLink]="['']">Sign In!</a></p>
 </form>
