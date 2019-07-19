@@ -1,0 +1,71 @@
+<h4 class="text-center"> Register to embrace a new world!</h4>
+
+<form [formGroup]="signupForm" class="form mt-6">
+    <div class="form-group">
+        <input formControlName="email" placeholder="email" class="form-control" autofocus >
+      <app-input-message
+        *ngIf="signupForm.get('email').errors?.required"
+        text="E-mail is required!"
+      ></app-input-message>
+      <app-input-message
+        *ngIf="signupForm.get('email').errors?.email"
+        text="Invalid E-mail!"
+      ></app-input-message>
+    </div>
+
+    <div class="form-group">
+        <input formControlName="fullname" placeholder="full name" class="form-control">
+      <app-input-message
+        *ngIf="signupForm.get('fullname').errors?.required"
+        text="Full name is required!"
+      ></app-input-message>
+      <app-input-message
+        *ngIf="signupForm.get('fullname').errors?.minlength"
+        text="Minimun 2 characters"
+      ></app-input-message>
+      <app-input-message
+        *ngIf="signupForm.get('fullname').errors?.maxlength"
+        text="Maximun 40 characters"
+      ></app-input-message>
+    </div>
+
+    <div class="form-group">
+        <input formControlName="username" placeholder="user name" class="form-control">
+      <app-input-message
+        *ngIf="signupForm.get('username').errors?.required"
+        text="Username is required!"
+      ></app-input-message>
+      <app-input-message
+        *ngIf="signupForm.get('username').errors?.minlength"
+        text="Minimun 2 characters"
+      ></app-input-message>
+      <app-input-message
+        *ngIf="signupForm.get('username').errors?.maxlength"
+        text="Maximun 30 characters"
+      ></app-input-message>
+      <app-input-message
+        *ngIf="signupForm.get('username').errors?.pattern"
+        text="Must be lowercase"
+      ></app-input-message>
+    </div>
+
+    <div class="form-group">
+        <input formControlName="password" type="password" placeholder="password" class="form-control">
+      <app-input-message
+        *ngIf="signupForm.get('password').errors?.required"
+        text="Password is required!"
+      ></app-input-message>
+      <app-input-message
+        *ngIf="signupForm.get('password').errors?.minlength"
+        text="Minimun 6 characters"
+      ></app-input-message>
+      <app-input-message
+        *ngIf="signupForm.get('password').errors?.maxlength"
+        text="Maximun 16 characters"
+      ></app-input-message>
+    </div>
+
+    <button class="btn btn-primary btn-block">Register</button>
+
+    <p>Already a user?<a [routerLink]="['']">Sign In!</a></p>
+</form>
