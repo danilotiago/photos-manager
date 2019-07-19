@@ -44,7 +44,7 @@
         text="Maximun 30 characters"
       ></app-input-message>
       <app-input-message
-        *ngIf="signupForm.get('username').errors?.pattern"
+        *ngIf="signupForm.get('username').errors?.lowercase"
         text="Must be lowercase"
       ></app-input-message>
     </div>
