@@ -16,10 +16,16 @@ export class UserService {
   // e assim que alguem se inscrever ele emite o valor
   private userSubject: BehaviorSubject<User> = new BehaviorSubject<User>(null);
 
+  private username: string = '';
+
   constructor(private tokenService: TokenService) { 
     if (this.tokenService.hasToken()) {
       this.decodeAndNotify();
     }
+  }
+
+  isLogged() {
+    return this.tokenService.hasToken();
   }
 
   setToken(token: string): void {
@@ -32,6 +38,10 @@ export class UserService {
     return this.userSubject.asObservable();
   }
 
+  getUsername(): string {
+    return this.username;
+  }
+
   logout() {
     this.tokenService.removeToken();
     this.userSubject.next(null);
@@ -42,6 +52,9 @@ export class UserService {
 
     // pega o retorno do jwt e ja faz um parse para o tipo User
     const user = jwt_decode(token) as User;
+
+    this.username = user.name;
+
     // notifica os incritos do subject para obter o user
     this.userSubject.next(user);
   }
