@@ -3,8 +3,8 @@ import { Injectable } from "@angular/core";
 import { NewUser } from './newUser.model';
 
 const API_URL = 'http://localhost:3000';
-
-@Injectable({providedIn: 'root'})
+// quem fara a injecao sera o home.module
+@Injectable()
 export class SignupService {
 
     constructor(private http: HttpClient) { }

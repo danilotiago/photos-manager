@@ -8,6 +8,7 @@ import { InputMessageModule } from "../shared/components/input-message/input-mes
 import { RouterModule } from "@angular/router";
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home.component';
+import { SignupService } from './signup/signup.service';
 
 @NgModule({
     imports: [
@@ -22,6 +23,10 @@ import { HomeComponent } from './home.component';
         HomeComponent,
         SigninComponent,
         SignupComponent
+    ],
+    // define os servicos injetaveis que serao providos por este component
+    providers: [
+        SignupService
     ]
 })
 export class HomeModule { }

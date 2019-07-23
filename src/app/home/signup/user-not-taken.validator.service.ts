@@ -3,7 +3,8 @@ import { Injectable } from "@angular/core";
 import { AbstractControl } from '@angular/forms';
 import { debounceTime, switchMap, map, first } from 'rxjs/operators';
 
-@Injectable({providedIn: 'root'})
+// quem fara a injecao sera o signup.component
+@Injectable()
 export class UserNotTakenValidatorService {
     
     constructor(private signupService: SignupService) { }

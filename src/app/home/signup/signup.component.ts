@@ -8,9 +8,10 @@ import { lowerCaseValidator } from 'src/app/shared/validators/lower-case.validat
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
+  // provera o servico de validacao de username
+  providers: [ UserNotTakenValidatorService ]
 })
 export class SignupComponent implements OnInit {
 
