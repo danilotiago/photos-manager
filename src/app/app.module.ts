@@ -1,3 +1,4 @@
+import { RequestInterceptor } from './core/auth/request.interceptor';
 import { HeaderModule } from './core/header/header.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -6,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
 import { ErrorsModule } from './errors/errors.module';
 import { PhotosModule } from './photos/photos.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,14 @@ import { PhotosModule } from './photos/photos.module';
     PhotosModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    // define o provide de interceptor
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
