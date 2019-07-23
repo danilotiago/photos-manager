@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
-  private signupForm: FormGroup;
+  signupForm: FormGroup;
   @ViewChild('emailInput') emailInput: ElementRef<HTMLInputElement>;
 
   constructor(
