@@ -1,3 +1,4 @@
+import { HomeRoutingModule } from './home.routing.module';
 import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
 
@@ -13,7 +14,8 @@ import { HomeComponent } from './home.component';
         CommonModule, 
         RouterModule,
         ReactiveFormsModule,
-        InputMessageModule
+        InputMessageModule,
+        HomeRoutingModule
     ],
     // components com escopo de pagina nao precisam ser exportados
     declarations: [
