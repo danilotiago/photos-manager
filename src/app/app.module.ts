@@ -1,3 +1,4 @@
+import { FooterModule } from './core/footer/footer.module';
 import { RequestInterceptor } from './core/auth/request.interceptor';
 import { HeaderModule } from './core/header/header.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,6 +18,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     BrowserModule,
     ErrorsModule,
     HeaderModule,
+    FooterModule,
     PhotosModule,
     AppRoutingModule
   ],
