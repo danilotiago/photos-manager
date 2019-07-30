@@ -1,3 +1,4 @@
+import { PhotoModule } from './../photo/photo.module';
 import { InputMessageModule } from './../../shared/components/input-message/input-message.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from "@angular/core";
@@ -14,7 +15,8 @@ import { RouterModule } from '@angular/router';
         CommonModule,
         RouterModule,
         ReactiveFormsModule,
-        InputMessageModule
+        InputMessageModule,
+        PhotoModule
     ]
 })
 export class PhotoFormModule { }

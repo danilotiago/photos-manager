@@ -13,6 +13,7 @@ export class PhotoFormComponent implements OnInit {
 
   photoForm: FormGroup;
   file: File;
+  filePreview: string = '';
 
   constructor(
     private formBuilder: FormBuilder, 
@@ -34,5 +35,17 @@ export class PhotoFormComponent implements OnInit {
     
     this.photoService.upload(newPhoto)
       .subscribe(() => this.router.navigate(['']));
+  }
+
+  handleFile(file: File) {
+    this.file = file;
+
+    const reader = new FileReader();
+    // pega o base64 da imagem
+    reader.readAsDataURL(file);
+    
+    // por ser assincrono, so pega quando estiver carregado
+    // casting do parametro para any
+    reader.onload = (event: any) => this.filePreview = event.target.result;
   }
 }
