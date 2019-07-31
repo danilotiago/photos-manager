@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhotoDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    const id = this.route.snapshot.params.photoId;
+    console.log(id);
   }
 
 }
