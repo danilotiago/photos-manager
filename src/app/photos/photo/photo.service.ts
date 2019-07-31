@@ -4,7 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Photo } from './photo.model';
 import { NewPhoto } from '../photo-form/new-photo.model';
-import { PhotoComment } from './photo-comment.model';
+import { PhotoComment } from './../photo-details/photo-comments/photo-comment.model';
 
 const API: string = 'http://localhost:3000';
 

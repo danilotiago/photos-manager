@@ -1,3 +1,4 @@
+import { AlertModule } from './shared/components/alert/alert.module';
 import { FooterModule } from './core/footer/footer.module';
 import { RequestInterceptor } from './core/auth/request.interceptor';
 import { HeaderModule } from './core/header/header.module';
@@ -20,6 +21,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     HeaderModule,
     FooterModule,
     PhotosModule,
+    AlertModule,
     AppRoutingModule
   ],
   providers: [
