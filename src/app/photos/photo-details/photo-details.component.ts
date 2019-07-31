@@ -1,4 +1,3 @@
-import { PhotoComment } from './../photo/photo-comment.model';
 import { Photo } from './../photo/photo.model';
 import { PhotoService } from './../photo/photo.service';
 import { ActivatedRoute } from '@angular/router';

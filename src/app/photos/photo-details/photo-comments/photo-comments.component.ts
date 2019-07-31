@@ -2,7 +2,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PhotoService } from './../../photo/photo.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PhotoComment } from '../../photo/photo-comment.model';
+import { PhotoComment } from './photo-comment.model';
 import { switchMap, tap } from 'rxjs/operators';
 
 @Component({
