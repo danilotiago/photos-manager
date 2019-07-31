@@ -41,6 +41,10 @@ export class PhotoService {
     return this.http.get<Photo>(`${API}/photos/${photoId}`);
   }
 
+  removePhoto(photoId: number) {
+    return this.http.delete(`${API}/photos/${photoId}`);
+  }
+
   getComments(photoId: number) {
     return this.http.get<PhotoComment[]>(`${API}/photos/${photoId}/comments`);
   }
