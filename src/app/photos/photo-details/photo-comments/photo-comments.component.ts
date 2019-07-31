@@ -3,6 +3,7 @@ import { PhotoService } from './../../photo/photo.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PhotoComment } from '../../photo/photo-comment.model';
+import { switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-photo-comments',
@@ -29,11 +30,17 @@ export class PhotoCommentsComponent implements OnInit {
     });
   }
 
-  save() {
+  save(): void {
     const comment = this.commentForm.get('comment').value as string;
 
-    this.photoService.addComment(this.photoId, comment)
-      .subscribe(() => this.commentForm.reset());
+    this.comments$ = this.photoService
+      .addComment(this.photoId, comment)
+      // switchMap => faz o subscribe pro observable anterior (addComment()) e muda 
+      // o fluxo para um novo subscribe abaixo (getComments()), retornando este observable
+      .pipe(switchMap(() => this.photoService.getComments(this.photoId)))
+      // tap() => aplica uma lógica antes de retornar o obervable anterior (getComments())
+      // logo, aplica o resetForm 
+      .pipe(tap(() => this.commentForm.reset()));
   }
 
 }
