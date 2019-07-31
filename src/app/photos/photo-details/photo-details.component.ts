@@ -12,7 +12,6 @@ import { Observable } from 'rxjs';
 export class PhotoDetailsComponent implements OnInit {
 
   photo$: Observable<Photo>;
-  comments$: Observable<PhotoComment[]>;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,7 +22,7 @@ export class PhotoDetailsComponent implements OnInit {
     const id = this.route.snapshot.params.photoId;
     
     this.photo$ = this.photoService.findById(id);
-    this.comments$ = this.photoService.getComments(id);
+    
   }
 
 }
