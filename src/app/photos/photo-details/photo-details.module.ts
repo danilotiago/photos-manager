@@ -6,6 +6,7 @@ import { PhotoCommentsComponent } from './photo-comments/photo-comments.componen
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputMessageModule } from '../../shared/components/input-message/input-message.module';
+import { PhotoOwnerOnlyModule } from '../../shared/directives/photo-owner-only/photo-owner-only.module';
 
 @NgModule({
     imports: [
@@ -13,7 +14,8 @@ import { InputMessageModule } from '../../shared/components/input-message/input-
         RouterModule,
         ReactiveFormsModule,
         PhotoModule,
-        InputMessageModule
+        InputMessageModule,
+        PhotoOwnerOnlyModule
     ],
     declarations: [PhotoDetailsComponent, PhotoCommentsComponent],
     exports: [PhotoDetailsComponent]
