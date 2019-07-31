@@ -32,9 +32,13 @@ const routes: Routes = [
     path: 'p/:photoId', 
     component: PhotoDetailsComponent
   },
-  {  // caso nao tenha nenhuma rota, carrega o default
+  { 
+    path: 'not-found', 
+    component: NotFoundComponent
+  },
+  {  // caso nao tenha nenhuma rota, redirect para not found
     path: '**', 
-    component: NotFoundComponent 
+    redirectTo: '/not-found'
   }
 ]
 
