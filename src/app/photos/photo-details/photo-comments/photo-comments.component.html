@@ -1,4 +1,4 @@
-<ul class="list-unstyled" *ngIf="(comments$ | async) as comments">
+<ul class="list-unstyled comment-list" *ngIf="(comments$ | async) as comments">
   <li *ngFor="let comment of comments">
       <a 
           class="text-dark font-weight-bold mr-1" 
