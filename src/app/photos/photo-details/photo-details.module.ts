@@ -1,3 +1,4 @@
+import { ShowIfLoggedModule } from './../../shared/directives/show-if-logged/show-if-logged.module';
 import { PhotoModule } from './../photo/photo.module';
 import { PhotoDetailsComponent } from './photo-details.component';
 import { CommonModule } from '@angular/common';
@@ -15,7 +16,8 @@ import { PhotoOwnerOnlyModule } from '../../shared/directives/photo-owner-only/p
         ReactiveFormsModule,
         PhotoModule,
         InputMessageModule,
-        PhotoOwnerOnlyModule
+        PhotoOwnerOnlyModule,
+        ShowIfLoggedModule
     ],
     declarations: [PhotoDetailsComponent, PhotoCommentsComponent],
     exports: [PhotoDetailsComponent]
