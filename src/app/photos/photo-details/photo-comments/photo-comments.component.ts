@@ -35,8 +35,9 @@ export class PhotoCommentsComponent implements OnInit {
 
     this.comments$ = this.photoService
       .addComment(this.photoId, comment)
-      // switchMap => faz o subscribe pro observable anterior (addComment()) e muda 
-      // o fluxo para um novo subscribe abaixo (getComments()), retornando este observable
+      // O operador switchMap cancela o Observable anterior addComment() passando o fluxo para um 
+      // novo Observable, garantindo assim que a emissão tenha apenas o valor emitido 
+      // pelo Observable retornado por switchMap getComments().
       .pipe(switchMap(() => this.photoService.getComments(this.photoId)))
       // tap() => aplica uma lógica antes de retornar o obervable anterior (getComments())
       // logo, aplica o resetForm 
