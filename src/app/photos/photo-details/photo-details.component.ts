@@ -43,4 +43,14 @@ export class PhotoDetailsComponent implements OnInit {
       });
   }
 
+  like(photo: Photo) {
+    this.photoService.like(photo.id)
+      .subscribe(liked => {
+        // se foto foi curtida, fazemos um recarregamento
+        if (liked) {
+          this.photo$ = this.photoService.findById(photo.id);
+        }
+      })
+  }
+
 }
