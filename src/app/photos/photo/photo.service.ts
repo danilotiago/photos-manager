@@ -6,8 +6,9 @@ import { Photo } from './photo.model';
 import { NewPhoto } from '../photo-form/new-photo.model';
 import { PhotoComment } from './../photo-details/photo-comments/photo-comment.model';
 import { map, catchError } from 'rxjs/operators';
+import { environment } from './../../../environments/environment';
 
-const API: string = 'http://localhost:3000';
+const API: string = environment.API_URL;
 
 @Injectable({
   providedIn: 'root'
