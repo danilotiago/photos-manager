@@ -4,6 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Photo } from './photo.model';
 import { NewPhoto } from '../photo-form/new-photo.model';
+import { PhotoComment } from './photo-comment.model';
 
 const API: string = 'http://localhost:3000';
 
@@ -36,7 +37,11 @@ export class PhotoService {
     return this.http.post(`${API}/photos/upload`, formData);
   }
 
-  findById(id: string) {
-    return this.http.get<Photo>(`${API}/photos/${id}`);
+  findById(photoId: number) {
+    return this.http.get<Photo>(`${API}/photos/${photoId}`);
+  }
+
+  getComments(photoId: number) {
+    return this.http.get<PhotoComment[]>(`${API}/photos/${photoId}/comments`);
   }
 }
