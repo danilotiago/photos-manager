@@ -23,8 +23,17 @@ export class PhotoListComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.photos = this.activatedRoute.snapshot.data.photos;
-    this.username = this.activatedRoute.snapshot.params.username;
+    // inscricao nos parametros da rota ativa para que toda vez que
+    // os parametros forem modificados sermos notificados para buscar os dados 
+    // novamente. Sem isso, nao conseguimos buscar as fotos do usuario da rota
+    // novamente e fazer uma nova renderizacao de dados pois o component nao 
+    // ira ser carregado novamente, logo, os dados de fotos nao serao renderizados
+    // novamente, por isso estamos inscritos nos parametros das rotas ouvindo
+    // modificacoes
+    this.activatedRoute.params.subscribe(params => {
+      this.username = params.username;
+      this.photos = this.activatedRoute.snapshot.data.photos;
+    });
   }
 
   load() {
