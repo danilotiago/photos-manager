@@ -21,24 +21,36 @@ const routes: Routes = [
   { 
     path: 'user/:username', 
     component: PhotoListComponent, 
-    resolve: { photos: PhotoListResolver } 
+    resolve: { photos: PhotoListResolver },
+    data: {
+      title: 'Timeline'
+    }
   },
   { 
     path: 'p/add', 
     component: PhotoFormComponent,
-    canActivate: [IfNotLoggedGuard]
+    canActivate: [IfNotLoggedGuard],
+    data: {
+      title: 'Photo upload'
+    }
   },
   { 
     path: 'p/:photoId', 
-    component: PhotoDetailsComponent
-  },
-  { 
-    path: 'not-found', 
-    component: NotFoundComponent
+    component: PhotoDetailsComponent,
+    data: {
+      title: 'Photo detail'
+    }
   },
   {  // caso nao tenha nenhuma rota, redirect para not found
     path: '**', 
     redirectTo: '/not-found'
+  },
+  { 
+    path: 'not-found', 
+    component: NotFoundComponent,
+    data: {
+      title: 'Not found'
+    }
   }
 ]
 
