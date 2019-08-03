@@ -4,6 +4,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../core/auth/auth.service';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   templateUrl: './signin.component.html',
@@ -18,10 +19,13 @@ export class SigninComponent implements OnInit {
     private formBuilder: FormBuilder, 
     private authService: AuthService,
     private router: Router,
-    private platformDetectorService: PlatformDetectorService
+    private platformDetectorService: PlatformDetectorService,
+    private titleService: Title
     ) { }
 
   ngOnInit() {
+    this.titleService.setTitle('Login');
+
     this.loginForm = this.formBuilder.group({
       username: [
         '', // valor default para o campo
