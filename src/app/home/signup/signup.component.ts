@@ -6,6 +6,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { lowerCaseValidator } from 'src/app/shared/validators/lower-case.validator';
 import { Router } from '@angular/router';
+import { userNamePasswordValidator } from './username-password.validator';
 
 @Component({
   templateUrl: './signup.component.html',
@@ -51,6 +52,8 @@ export class SignupComponent implements OnInit {
         Validators.minLength(6),
         Validators.maxLength(16)
       ]]
+    }, {
+      validator: userNamePasswordValidator
     });
 
     if (this.platformDetectorService.isPlatformBrowser()) {

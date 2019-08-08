@@ -68,6 +68,10 @@
         *ngIf="signupForm.get('password').errors?.maxlength && (form.submitted || signupForm.get('password').touched)"
         text="Maximun 16 characters"
       ></app-input-message>
+      <app-input-message
+        *ngIf="signupForm.errors?.userNamePassword"
+        text="Username and password must be different"
+      ></app-input-message>
     </div>
 
     <!--valida se pending pois podemos ter validacoes assincronas, 
