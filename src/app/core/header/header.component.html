@@ -1,6 +1,21 @@
 <header class="fixed-top">
   <nav class="navbar navbar-light bg-white">
-      <a class="navbar-brand">ALURAPIC</a>
+      <!-- chamando o metodo toggle direto pela variavel de template que
+           referencia o componente de menu -->
+      <a class="navbar-brand">
+        <i
+          tabindex="0" 
+          (keyup.space)="menu.toggle()" 
+          (click)="menu.toggle()" 
+          class="fa fa-bars mr-2"
+        ></i>
+        ALURAPIC
+      </a>
+      <app-menu #menu>
+        <ul class="list-unstyled">
+          <li><a show-if-logged [routerLink]="['p', 'add']">Upload</a></li>
+        </ul>
+      </app-menu>
       <div *ngIf="(user$ | async) as user; else login">
           <i class="fa fa-user-circle"></i>
           <a class="ml-1">{{ user.name }}</a>

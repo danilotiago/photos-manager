@@ -1,3 +1,5 @@
+import { ShowIfLoggedModule } from './../../shared/directives/show-if-logged/show-if-logged.module';
+import { MenuModule } from './../../shared/components/menu/menu.module';
 import { LoadingModule } from './../../shared/components/loading/loading.module';
 import { RouterModule } from '@angular/router';
 import { NgModule } from "@angular/core";
@@ -10,7 +12,9 @@ import { AlertModule } from '../../shared/components/alert/alert.module';
         CommonModule, 
         RouterModule,
         AlertModule,
-        LoadingModule
+        LoadingModule,
+        MenuModule,
+        ShowIfLoggedModule
     ],
     declarations: [HeaderComponent],
     exports: [HeaderComponent]
