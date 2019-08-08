@@ -39,7 +39,9 @@ export class PhotoDetailsComponent implements OnInit {
     this.photoService.removePhoto(this.photoId)
       .subscribe(() => {
         this.alertService.success('Photo removed!', true);
-        this.router.navigate(['/user', this.userService.getUsername()])
+        // replaceUrl => troca a rota antiga (a rota da foto que foi removida) para a nova rota
+        // abaixo e faz com que a antiga nao seja chamada, pois a photo nao existe mais
+        this.router.navigate(['/user', this.userService.getUsername()], { replaceUrl: true })
       });
   }
 
