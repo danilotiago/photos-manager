@@ -27,7 +27,7 @@ export class PhotoService {
       .append('page', page.toString());
 
     return this.http
-      .get<Photo[]>(`${API}/${username}/photosX`, { params });
+      .get<Photo[]>(`${API}/${username}/photos`, { params });
   }
 
   upload(newPhoto: NewPhoto): Observable<any> {

@@ -7,6 +7,7 @@ import { PhotoDetailsComponent } from './photos/photo-details/photo-details.comp
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { PhotoListResolver } from './photos/photo-list/photo-list.resolver';
 import { IfNotLoggedGuard } from './core/auth/ifnotlogged.guard';
+import { GlobalErrorComponent } from './errors/global-error/global-error.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,13 @@ const routes: Routes = [
     component: PhotoDetailsComponent,
     data: {
       title: 'Photo detail'
+    }
+  },
+  { 
+    path: 'error', 
+    component: GlobalErrorComponent,
+    data: {
+      title: 'Error'
     }
   },
   {  // caso nao tenha nenhuma rota, redirect para not found

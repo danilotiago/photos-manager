@@ -1,8 +1,10 @@
+import { Router } from '@angular/router';
 import { ErrorHandler, Injectable, Injector } from "@angular/core";
 import * as StackTrace from 'stacktrace-js';
 import { LocationStrategy, PathLocationStrategy } from "@angular/common";
 import { UserService } from "../../core/user/user.service";
 import { ServerLogService } from "./server-log.service";
+import { environment } from '../../../environments/environment';
 
 // ja foi provido pelo error.module, logo, nao precisa de provededIn
 @Injectable()
@@ -20,6 +22,7 @@ export class GlobalErrorHandler implements ErrorHandler {
         const location = this.injector.get(LocationStrategy);
         const userService = this.injector.get(UserService);
         const serverLogService = this.injector.get(ServerLogService);
+        const router = this.injector.get(Router);
 
         // obtem a url que o usuario esta, se nao for da instancia correta joga url em branco
         const url = location instanceof PathLocationStrategy
@@ -29,6 +32,10 @@ export class GlobalErrorHandler implements ErrorHandler {
         const message = error.message
             ? error.message
             : error.toString();
+
+        if (environment.production) {
+            router.navigate(['/error']);
+        }
 
         StackTrace.fromError(error)
             .then(stackFrames => {
